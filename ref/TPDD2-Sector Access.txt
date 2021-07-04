@@ -1,0 +1,121 @@
+===============Reading Data From Sectors===============
+/---------------------\
+| Load Sector Request |
++--------+---+-------++----------------------------+--------\
+|        |Req|Payload|Payload                      |        |
+|Preamble|ID |Length |Rsvd A|Track|Rsvd B|Sector   |Checksum|
++--------+---+-------+------+-----+------+---------+--------+
+|5A 5A   |30 |05     |00 00 |00-4F|00    |00 or 01 |1 Byte  |
+\--------+---+-------+------+-----+------+---------+--------/
+
+/----------------------\
+| Load Sector Response |
++--------+-------+-----+--+--------\
+|Response|Payload|Response|Checksum|
+|ID      |Length |Code    |        |
++--------+-------+--------+--------+
+|38      |01     |1 Byte  |1 Byte  |
+\--------+-------+--------+--------/
+
+/------------------------\
+| Read Sector ID Request |
++--------+---+-------+---+-------+--------\
+|        |Req|Payload|           |        |
+|Preamble|ID |Length |Payload    |Checksum|
++--------+---+-------+-----------+--------+
+|5A 5A   |32 |04     |01 80 04 04|1 Byte  |
+\--------+---+-------+-----------+--------/
+
+/-------------------------\
+| Read Sector ID Response |
++--------+-------+--------+--------\
+|Response|Payload|Sector  |Checksum|
+|ID      |Length |ID      |        |
++--------+-------+--------+--------+
+|39      |07     |7 Bytes |1 Byte  |
+\--------+-------+--------+--------/
+
+/------------------------------\
+| Read Sector Fragment Request |
++------------------------------+
+| Offset is from 0000 to 4FF   |
+| Length is from 01 to FF but  |
+| 0x40 is what BACKUP.BA uses  |
++--------+---+-------+---------+-------+--------\
+|        |Req|Payload|Payload 4 bytes  |        |
+|Preamble|ID |Length |??|Offset |Length|Checksum|
++--------+---+-------+--+-------+------+--------|
+|5A 5A   |32 |04     |00|2 Bytes|1 Byte|1 Byte  |
+\--------+---+-------+--+-------+------+--------/
+
+/-------------------------------\
+| Read Sector Fragment Response |
++--------+-------+--------+-------------+--------\
+|Response|Payload|Payload               |        |
+|ID      |Length |Rsvd A|Offset |Data   |Checksum|
++--------+-------+------+-------+-------+--------+
+|39      |07     |1 Byte|2 Bytes|X Bytes|1 Byte  |
+\--------+-------+------+-------+-------+--------/
+
+================Writing Data to Sectors================
+/-----------------------------------\
+| Write Sector ID To Memory Request |
++--------+---+-------+-------+------+-\
+|        |Req|Payload|Sector |        |
+|Preamble|ID |Length |ID     |Checksum|
++--------+---+-------+-------+--------+
+|5A 5A   |31 |07     |7 Bytes| 1 Byte |
+\--------+---+-------+-------+--------/
+
+/-------------------\
+| Standard Response |
+| For all write Req |
++--------+-------+--+-----+--------\
+|Response|Payload|Response|Checksum|
+|ID      |Length |Code    |        |
++--------+-------+--------+--------+
+|38      |01     |1 Byte  |1 Byte  |
+\--------+-------+--------+--------/
+
+/-----------------------------------------\
+| Write Sector Fragment To Memory Request |
+| BACKUP.BA uses a payload length of 0x43 |
+| This command is repeated until the      |
+| the entire sector is written to memory   |
++--------+---+-------+-------------------+--------\
+|        |Req|Payload|Payload            |        |
+|Preamble|ID |Length |??|Offset |Data    |Checksum|
++--------+---+-------+--+-------+--------+--------|
+|5A 5A   |31 |XX     |00|2 Bytes|XX Bytes|1 Byte  |
+\--------+---+-------+--+-------+--------+--------/
+
+/------------------------------\
+| Mystery write #1             |
+| Called after the full sector |
+| is writtent to memory        |
++--------+---+-------+---------+----------\
+|        |Req|Payload|                    |
+|Preamble|ID |Length |Payload    |Checksum|
++--------+---+-------+-----------+--------|
+|5A 5A   |31 |04     |01 00 83 00|1 Byte  |
+\--------+---+-------+-----------+--------/
+
+/------------------------------\
+| Mystery write #2             |
+| Called after the full sector |
+| is writtent to memory        |
++--------+---+-------+---------+----------\
+|        |Req|Payload|                    |
+|Preamble|ID |Length |Payload    |Checksum|
++--------+---+-------+-----------+--------|
+|5A 5A   |31 |04     |01 00 93 00|1 Byte  |
+\--------+---+-------+-----------+--------/
+
+/-------------------------------\
+| Write sector in memory to disk|
++--------+---+-------+----------+------------------\
+|        |Req|Payload|Payload                      |
+|Preamble|ID |Length |??|Track|??|Sector  |Checksum|
++--------+---+-------+--+-----+--+--------+--------|
+|5A 5A   |30 |05     |00|00-4F|00|00 or 01|1 Byte  |
+\--------+---+-------+--+-----+--+--------+--------/
