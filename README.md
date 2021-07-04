@@ -20,18 +20,22 @@ Intended to be used with [LPT_Capture](https://github.com/bkw777/LPT_Capture).
 
 This does not require floppy.co or Powr-DOS or any other software installed on the portable, and this expanded version is a little easier to read and work on so the BASIC code is fairly scrutable, however unfortunately there still is a short machine language routine embedded in the BASIC code which is not explained or documented at all.
 
+# depends
+Makefile uses barenum and bapack from [BA_stuff](https://github.com/bkw777/BA_stuff)  
+"make install" uses the bootstrap function in [dlplus](https://github.com/bkw777/dlplus)  
+
 # references
 
 TPDD1 operation manual https://archive.org/details/TandyPortableDiskDriveOperationManual26-3808/  
 TPDD1 software manual (documents sector access) https://archive.org/details/TandyPortableDiskDriveSoftwareManual26-3808s/  
 TPDD1 service manual https://archive.org/details/tandy-portable-disk-drive-service-manual-26-3808  
 
-TPDD2 operation manual https://archive.org/details/Portable_Disk_Drive_2_Operation_Manual_1986_Tandy
+TPDD2 operation manual https://archive.org/details/Portable_Disk_Drive_2_Operation_Manual_1986_Tandy  
 TPDD2 sector access notes and windows executable http://club100.org/memfiles/index.php?&direction=0&order=&directory=Kurt%20McCullum/TPDD%20Client  
 TPDD2 sector access http://bitchin100.com/wiki/index.php?title=TPDD-2_Sector_Access_Protocol  
 Original SECTOR.BA, TPDD2 sector reader https://ftp.whtech.com/club100/drv/sector.ba  
 
 TPDD1 and TPDD2 Normal file access http://bitchin100.com/wiki/index.php?title=Base_Protocol  
-Many discussions and programs in the M100SIG archive https://archive.org/details/M100SIG
-Python TPDD client https://trs80stuff.net/tpdd/
-Python TPDD server http://club100.org/memfiles/index.php?&direction=0&order=&directory=Kurt%20McCullum/mComm%20Python
+Many discussions and programs in the M100SIG archive https://archive.org/details/M100SIG  
+Python TPDD client https://trs80stuff.net/tpdd/  
+Python TPDD server http://club100.org/memfiles/index.php?&direction=0&order=&directory=Kurt%20McCullum/mComm%20Python  
