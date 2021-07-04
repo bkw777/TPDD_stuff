@@ -69,7 +69,7 @@
 690 ON ERROR GOTO 2440 :I$=CHR$(13)+" "+CHR$(27)+"PpOoWwLlDdTtSsZzFf"
 700 FOR A = 1 TO 3 :READ P$(A) :NEXT A
 710 DATA "CRT","LCD","LPT"
-720 Z$(0)="      " :Z$(1)="(cont)" :V$(0)="H" :V$(1)="M"
+720 Z$(0)="(sect)" :Z$(1)="(disk)" :V$(0)="H" :V$(1)="M"
 730 OPEN "COM:98N1D" FOR OUTPUT AS 1 :OPEN "COM:98N1D" FOR INPUT AS 2
 740 '
 750 '
@@ -79,14 +79,14 @@
 790 PRINT@0,"         TPDD2 Sector Examiner         "
 800 PRINT   "[ENTER] This Menu           [ESC] EXIT "
 810 PRINT   "[SPACE] Continue/Resume                "
-820 PRINT   "[D] Dump                               "
+820 PRINT   "[D] Dump           [Z] Sector/Disk     "
 830 PRINT   "[P] Output Port:                       "
 840 PRINT   "[T] Track  :       [F] Log Format:     "
 850 PRINT   "[S] Sector :       [L] LPT lines :     "
 860 PRINT   "[O] Offset :       [W] CRT width :     ";
 870 '
 880 '------ display current values in the menu
-890 GOSUB 1670 :PRINT@177,P$(P); :PRINT@293,J$; :PRINT@252,S; :PRINT@274,L; :PRINT@212,T; :PRINT@314,W; :PRINT@141,Z$(Z); :PRINT@235,V$(V); 
+890 GOSUB 1670 :PRINT@177,P$(P); :PRINT@293,J$; :PRINT@252,S; :PRINT@274,L; :PRINT@212,T; :PRINT@314,W; :PRINT@129,Z$(Z); :PRINT@235,V$(V); 
 900 '------ user input
 910 A$=INKEY$ :IF A$="" GOTO 910 
 920 A=INSTR(I$,A$)
