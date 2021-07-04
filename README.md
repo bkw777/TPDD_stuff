@@ -21,7 +21,7 @@ Intended to be used with [LPT_Capture](https://github.com/bkw777/LPT_Capture).
 This does not require floppy.co or Powr-DOS or any other software installed on the portable, and this expanded version is a little easier to read and work on so the BASIC code is fairly scrutable, however unfortunately there still is a short machine language routine embedded in the BASIC code which is not explained or documented at all.
 
 # depends
-Makefile uses barenum and bapack from [BA_stuff(]https://github.com/bkw777/BA_stuff)  
+Makefile uses barenum and bapack from [BA_stuff](https://github.com/bkw777/BA_stuff)  
 Makefile uses the bootstrap function in [dlplus](https://github.com/bkw777/dlplus)  
 
 # references
