@@ -66,7 +66,7 @@
 660 '
 670 '------ initialize variables and open the TPDD com port
 680 DIM P$(3) :H$="0123456789ABCDEF" :T=0 :S=0 :P=2 :W=40 :D=W/5 :J=0 :J$="000" :L=0 :Z=0
-690 ON ERROR GOTO 2440 :I$=CHR$(13)+" "+CHR$(27)+"OoJjWwLlDdTtSsZzVv"
+690 ON ERROR GOTO 2440 :I$=CHR$(13)+" "+CHR$(27)+"PpOoWwLlDdTtSsZzFf"
 700 FOR A = 1 TO 3 :READ P$(A) :NEXT A
 710 DATA "CRT","LCD","LPT"
 720 Z$(0)="      " :Z$(1)="(cont)" :V$(0)="H" :V$(1)="M"
@@ -76,21 +76,21 @@
 760 '------ display the main menu
 770 CLS :X=0
 780 R=0 '   "#######################################"
-790 PRINT@0,"TPDD2_sector                 [ESC] EXIT"
-800 PRINT   "[ENTER] This Menu                      "
+790 PRINT@0,"         TPDD2 Sector Examiner         "
+800 PRINT   "[ENTER] This Menu           [ESC] EXIT "
 810 PRINT   "[SPACE] Continue/Resume                "
-820 PRINT   "[D] Dump   format:                     "
-830 PRINT   "[O] Output Port:                       "
-840 PRINT   "[T] Track  :                           "
-850 PRINT   "[S] Sector :       [L] LPT lines:      "
-860 PRINT   "[J] Offset :       [W] CRT width:      ";
+820 PRINT   "[D] Dump                               "
+830 PRINT   "[P] Output Port:                       "
+840 PRINT   "[T] Track  :       [F] Log Format:     "
+850 PRINT   "[S] Sector :       [L] LPT lines :     "
+860 PRINT   "[O] Offset :       [W] CRT width :     ";
 870 '
 880 '------ display current values in the menu
-890 GOSUB 1670 :PRINT@177,P$(P); :PRINT@293,J$; :PRINT@252,S; :PRINT@272,L; :PRINT@212,T; :PRINT@312,W; :PRINT@141,Z$(Z); :PRINT@139,V$(V); 
+890 GOSUB 1670 :PRINT@177,P$(P); :PRINT@293,J$; :PRINT@252,S; :PRINT@274,L; :PRINT@212,T; :PRINT@314,W; :PRINT@141,Z$(Z); :PRINT@235,V$(V); 
 900 '------ user input
 910 A$=INKEY$ :IF A$="" GOTO 910 
 920 A=INSTR(I$,A$)
-930 '       ENTER,SPACE,ESC,  O,   o,   J,   j,   W,   w,   L,   l,   D,   d,   T,   t,   S,   s,   Z,   z,   V,   v
+930 '       ENTER,SPACE,ESC,  P,   p,   O,   o,   W,   w,   L,   l,   D,   d,   T,   t,   S,   s,   Z,   z,   F,   f
 940 ON A GOTO 770,980,1030,1070,1070,2010,2010,1200,1200,1240,1240,1280,1280,1910,1910,1960,1960,2080,2080,2140,2140 :GOTO 910 
 950 '
 960 '
