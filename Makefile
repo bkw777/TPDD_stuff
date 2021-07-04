@@ -8,6 +8,10 @@
 SRC=TPDD2_sector.bas
 OBJ=SECTR2.DO
 
+# set INSTALL_PORT=something in your environment
+# to skip having to enter "ttyUSB1" repeatedly during repeated "make install"
+INSTALL_PORT?=ttyUSB0
+
 all: $(OBJ)
 
 $(OBJ): $(SRC)
@@ -22,8 +26,8 @@ renum: $(SRC)
 PHONY: install
 install: $(OBJ)
 	@echo "What tty device is the portable connected to?"
-	@echo "Press Enter for the default ttyUSB0, otherwise enter a name like ttyS0, ttyUSB1, etc."
-	@read -p ": " d && dl $${d} -b=./$(OBJ)
+	@echo "Press Enter for $(INSTALL_PORT), otherwise enter a name like ttyS0, ttyUSB1, etc."
+	@read -p ": " d && dl $${d:-$(INSTALL_PORT)} -b=./$(OBJ)
 
 PHONY: clean
 clean:
