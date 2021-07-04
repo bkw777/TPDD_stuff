@@ -4,10 +4,7 @@ Utilities related to the Tandy Portable Disk Drive and Tandy Portable Disk Drive
 Initially there is only a modified version of SECTOR.BA, a TPDD2 sector reader.
 
 The intent of this project is to use all of the references below to put together one or more tools implemented in a more open, generic, and flexible form than what's currently available.  
-No single resource brings it all together, but:  
-- Normal file access for both TPDD1 and TPDD2 is documented  
-- Sector access for TPDD1 is documented  
-- Sector access for TPDD2 is documented  
+The info is spread among a few different places, but the necessary bits of info for both TPDD1 and TPDD2 are documented  
 
 ## TPDD1_sector.bas / SECTR1.DO
 BASIC program to access raw sectors on a TPDD1  
@@ -18,7 +15,7 @@ BASIC program to access raw sectors on a TPDD2
 
 Modified from [SECTOR.BA](https://ftp.whtech.com/club100/drv/sector.ba)
 
-Modified to include a continuus dump option without stopping at the end of one sector and no page breaks in the output, and cleaner ouput for easier processing by other tools.  
+Modified to include a whole-disk continuus dump option without stopping at the end of each sector, and no page breaks in the output, and an alternate output format that's better for processing by other tools.  
 Intended to be used with [LPT_Capture](https://github.com/bkw777/LPT_Capture).
 
 This does not require floppy.co or Powr-DOS or any other software installed on the portable, and this expanded version is a little easier to read and work on so the BASIC code is fairly scrutable, however unfortunately there still is a short machine language routine embedded in the BASIC code which is not explained or documented at all.
@@ -35,9 +32,6 @@ TPDD2 sector access http://bitchin100.com/wiki/index.php?title=TPDD-2_Sector_Acc
 Original SECTOR.BA, TPDD2 sector reader https://ftp.whtech.com/club100/drv/sector.ba  
 
 TPDD1 and TPDD2 Normal file access http://bitchin100.com/wiki/index.php?title=Base_Protocol  
-
 Many discussions and programs in the M100SIG archive https://archive.org/details/M100SIG
-
 Python TPDD client https://trs80stuff.net/tpdd/
-
 Python TPDD server http://club100.org/memfiles/index.php?&direction=0&order=&directory=Kurt%20McCullum/mComm%20Python
