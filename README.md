@@ -22,7 +22,7 @@ This does not require floppy.co or Powr-DOS or any other software installed on t
 
 # depends
 Makefile uses barenum and bapack from [BA_stuff](https://github.com/bkw777/BA_stuff)  
-Makefile uses the bootstrap function in [dlplus](https://github.com/bkw777/dlplus)  
+"make install" uses the bootstrap function in [dlplus](https://github.com/bkw777/dlplus)  
 
 # references
 
