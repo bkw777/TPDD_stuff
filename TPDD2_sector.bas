@@ -15,7 +15,7 @@
 150 '  Comments. Makefile. https://github.com/bkw777/BA_stuff. Continuous whole-disk mode (Z and L options).
 160 '  F key toggles between 2 output formats, one better for human viewing, one better for machine processing of whole disk dump.
 170 '    (track & sector included in output, display field removed)
-180 '  Current settings & status dislayed in menu and progress header.
+180 '  Current settings & status displayed in menu and progress header.
 190 '  Removed formfeed button.
 200 '
 210 '
