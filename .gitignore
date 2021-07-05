@@ -7,3 +7,8 @@
 *.[Dd][Oo]
 *.[Bb][Aa]
 
+# captures from comm programs
+*.dump
+*.cap
+*.log
+

@@ -22,7 +22,15 @@ This does not require floppy.co or Powr-DOS or any other software installed on t
 
 A packed version is in the [releases](https://github.com/bkw777/TPDD_stuff/releases/) tab.
 
-# depends
+## dump2bin.sh
+
+Bash one-liner to convert the text hex dump to binary.  
+Input is the "M" machine format whole-disk dump from TPDD2_sector.bas
+
+Usage:
+    dump2bin.sh <in.txt >out.bin
+
+# dependencies
 Makefile uses barenum and bapack from [BA_stuff](https://github.com/bkw777/BA_stuff)  
 "make install" uses the bootstrap function in [dlplus](https://github.com/bkw777/dlplus)  
 

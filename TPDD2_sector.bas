@@ -171,12 +171,12 @@
 1710 TX$=CHR$(50)+CHR$(4)+CHR$(0)+CHR$(A)+CHR$((I*D)-(A*256))+CHR$(D)
 1720 GOSUB 1920 :IF A>0 GOTO 2520 
 1730 '------ output the hex pairs
-1740 GOSUB 2290 :IF V=1 THEN  PRINT#3,T""S;
+1740 GOSUB 2290 :IF V=1 THEN  PRINT#3,USING" ##";T;:PRINT#3,USING" # ";S;
 1750 PRINT#3,J$+" ";:FOR C = 1 TO D :A=ASC(MID$(RX$,C,1)) :GOSUB 2240 :PRINT#3,A$+" "; :NEXT C :IF V=1 THEN 1790 
 1760 '------ output the printable bytes
 1770 PRINT#3,"  "; :FOR C = 1 TO D :A$=MID$(RX$,C,1) :IF A$>CHR$(31) THEN  PRINT #3,A$;ELSE  PRINT#3,".";
 1780 NEXT C
-1790 PRINT#3,"" :I=I+1 :IF I*D > 1279 THEN  GOTO 2080 ELSE  A$=INKEY$ :IF A$<>"" GOTO 1000 
+1790 PRINT#3,"" :I=I+1 :IF I*D > 1279 THEN 2080 ELSE  A$=INKEY$ :IF A$<>"" GOTO 1000 
 1800 '------ paginate the dump output
 1810 '------ CRT 24 lines, LCD 7 lines, beep and pause
 1820 IF (P=1 AND (I MOD 24 = 0)) OR (P=2 AND (I MOD 7 = 0)) THEN  SOUND 1280,1 :GOTO 990 
@@ -205,10 +205,10 @@
 2050 '
 2060 '
 2070 '------ end of sector
-2080 X=2 :I=0
-2090 IF Z=0 THEN  SOUND 1180,5 :SOUND 1280,5 :GOTO 990 
+2080 I=0
+2090 IF Z=0 THEN  SOUND 1180,5 :SOUND 1280,5 :X=0 :R=1 :GOTO 990 
 2100 IF S=1 THEN  T=T+1
-2110 GOTO 1400 
+2110 X=2 :GOTO 1400 
 2120 '
 2130 '
 2140 '------ get printer status
