@@ -231,7 +231,7 @@
 2310 '------ open output
 2320 CLOSE 3 :OPEN P$(P)+":" FOR OUTPUT AS 3
 2330 '------ progress / status header
-2340 CALL 16959 :CLS :PRINT "Output:"+P$(P)+" Track:"T" Sector:"S""+Z$(Z) :RETURN
+2340 CALL 16959 :CLS :PRINT "Output:"+P$(P)+"  Track:"T" Sector:"S" "+Z$(Z) :RETURN
 2350 '
 2360 '
 2370 '------ pop-up dialog
