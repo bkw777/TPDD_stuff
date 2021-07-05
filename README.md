@@ -28,6 +28,7 @@ Bash one-liner to convert the text hex dump to binary.
 Input is the "M" machine format whole-disk dump from TPDD2_sector.bas
 
 Usage:
+
     dump2bin.sh <in.txt >out.bin
 
 # dependencies
