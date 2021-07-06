@@ -75,7 +75,7 @@
 750 ON ERROR GOTO 2660 :I$=CHR$(13)+" "+CHR$(27)+"PpOoWwLlDdTtSsZzFf"
 760 FOR A = 1 TO 3 :READ P$(A) :NEXT A
 770 DATA "CRT","LCD","LPT"
-780 Z$(0)="(sect)" :Z$(1)="(disk)" :V$(0)="H" :V$(1)="M"
+780 DIM Z$(2) :Z$(0)="(sect)" :Z$(1)="(disk)" :DIM V$(2) :V$(0)="H" :V$(1)="M"
 790 OPEN "COM:98N1D" FOR OUTPUT AS 1 :OPEN "COM:98N1D" FOR INPUT AS 2
 800 '
 810 '
@@ -171,7 +171,7 @@
 1710 TX$=CHR$(50)+CHR$(4)+CHR$(0)+CHR$(A)+CHR$((I*D)-(A*256))+CHR$(D)
 1720 GOSUB 1920 :IF A>0 GOTO 2520 
 1730 '------ output the hex pairs
-1740 GOSUB 2290 :IF V=1 THEN  PRINT#3,USING" ##";T;:PRINT#3,USING" # ";S;
+1740 GOSUB 2290 :IF V=1 THEN  PRINT#3,USING"## ";T;:PRINT#3,USING"# ";S;
 1750 PRINT#3,J$+" ";:FOR C = 1 TO D :A=ASC(MID$(RX$,C,1)) :GOSUB 2240 :PRINT#3,A$+" "; :NEXT C :IF V=1 THEN 1790 
 1760 '------ output the printable bytes
 1770 PRINT#3,"  "; :FOR C = 1 TO D :A$=MID$(RX$,C,1) :IF A$>CHR$(31) THEN  PRINT #3,A$;ELSE  PRINT#3,".";
