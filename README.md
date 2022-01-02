@@ -2,13 +2,13 @@
 
 ---- (sunset notice) ----
 
-This project is essentially now obsolete. See [pdd.sh](github.com/bkw777/pdd.sh) instead.
+This project is essentially now obsolete. See [pdd.sh](https://github.com/bkw777/pdd.sh) instead.
 
 SECTR2.BA below only works on TPDD2, can not read all parts of the disk, can not write to the disk, relies on some inscrutable machine code included inside the BASIC code (which I did not write and can not explain), and only runs on the slow vinatge computer.
 
 SECTR2.BA is mildly interesting in that it lets you examine raw bytes on a disk directly from the portable.
 
-But I have since written [pdd.sh](github.com/bkw777/pdd.sh) which allows both reading and writing raw sectors, including the metadata parts, supports both TPDD1 and TPDD2, relies on no machine code, and runs on any modern machine or OS.
+But I have since written [pdd.sh](https://github.com/bkw777/pdd.sh) which allows both reading and writing raw sectors, including the metadata parts, supports both TPDD1 and TPDD2, relies on no machine code, and runs on any modern machine or OS.
 
 ---- (original readme) ----
 
