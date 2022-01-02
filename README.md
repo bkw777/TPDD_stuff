@@ -1,4 +1,15 @@
 # TPDD stuff
+
+---- (sunset notice) ----
+
+This project is essentially now obsolete. SECTR2.BA below only works on TPDD2, relies on some inscrutable machine code included inside the BASIC code (which I did not write and can not explain), only runs on the agonizingly slow vinatge computer, and does not support the metadata parts of the disk.
+
+SECTR2.BA is mildly interesting in that it lets you examine (though not edit) raw bytes on a disk (from the normal data sections only), directly from the portable.
+
+But other than that, I have since written [pdd.sh](github.com/bkw777/pdd.sh) which allows both reading and writing raw sectors, including the metadata parts, supports both TPDD1 and TPDD2, relies on no machine code, and runs on any modern machine or OS.
+
+---- (original readme) ----
+
 Utilities related to the Tandy Portable Disk Drive and Tandy Portable Disk Drive 2
 
 Initially there is only a modified version of SECTOR.BA, a TPDD2 sector reader.
