@@ -50,7 +50,7 @@ Usage:
 
 # dependencies
 Makefile uses barenum and bapack from [BA_stuff](https://github.com/bkw777/BA_stuff)  
-"make install" uses the bootstrap function in [dlplus](https://github.com/bkw777/dlplus)  
+"make install" uses the bootstrap function in [dl2](https://github.com/bkw777/dl2)  
 
 # references
 
